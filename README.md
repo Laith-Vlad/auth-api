@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## [PR](https://github.com/Laith-Vlad/auth-api/pull/3)
 ## [Actions](https://github.com/Laith-Vlad/auth-api/actions)
-## [Deployed link ](https://authintication.onrender.com/)
+## [Deployed link ](https://lab8-8bal.onrender.com)
 
 ## Project Description
 
@@ -71,12 +71,12 @@ Setting Up the Application:
 ## How to use 
 
 
-- **post /signup**: signing up. [local host link](https://authintication.onrender.com/signup)
+- **post /signup**: signing up. [local host link](https://lab8-8bal.onrender.com/signup)
 you can use the rest of it by adding a / and writing the id  while changing the method
 
 ### login Resource
 
-- **post /login**: Retrieve a list of clothes records. [local host link](https://authintication.onrender.com/login)
+- **post /login**: Retrieve a list of clothes records. [local host link](https://lab8-8bal.onrender.com/signin)
 you can use the rest of it by adding a / and writing the id   
 
 ## Usage Guide
@@ -85,15 +85,19 @@ you can add stuff using the body cause i used body parser regarding the food you
 ```json
 {
   "username": "rice",
-  "password": "123"
+  "password": "123",
+   "role": "admin"
 }
 ```
 ### login should be in the header so basic authentication 
 ```json
 {
   "username": "rice",
-  "password": "123"
-  
+  "password": "123",
+   "role": "admin"
 }
 
 ```
+
+## route of /api/v2/ all opertations will be doen here so you can add them.
+
