@@ -1,14 +1,8 @@
-'use strict';
+const { userSequelize } = require("./src/model");
+const { start } = require("./src/server");
 
-require('dotenv').config();
-const { db } = require('./src/models');
-const server = require('./src/server.js');
-const PORT = process.env.PORT || 3001
+userSequelize.sync().then( () => {
+     start()
+}).catch(err => console.log('Main index' ))
 
-async function startServer() {
-  await db.sync();
-  server.start(PORT);
-}
-
-startServer();
-
+// {force : true}

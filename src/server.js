@@ -1,42 +1,27 @@
+const express = require("express")
+const app = express()
+const cors = require('cors')
+const authRouter = require("./routes")
+const router = require("./clothesRoutes")
+require('dotenv').config()
 
-'use strict';
 
-// 3rd Party Resources
-const express = require('express');
-const cors = require('cors');
+app.use(cors())
+app.use(express.json())
 
 
-// Esoteric Resources
-const errorHandler = require('./error-handlers/500.js');
-const notFound = require('./error-handlers/404.js');
-const authRoutes = require('./routes/routes.js');
+app.use(authRouter)
+app.use(router)
 
-// Prepare the express app
-const app = express();
-const logger = require('./middleware/logger.js');
-const v1Routes = require('./routes/v1.js');
-const v2Routes = require('./routes/v2.js');
-// App Level MW
-app.use(cors());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+function start(){
+     app.listen(3001 , () => {
+          console.log('up and roninng on port', 3001 )
+     })
+}
 
-// Routes
-app.use(authRoutes);
-app.use(logger);
-app.use("/api/v1/",v1Routes);
-app.use("/api/v2/",v2Routes);
-
-// Catchalls
-app.use(notFound);
-app.use(errorHandler);
 
 module.exports = {
-  server: app,
-  start: (port) => {
-    app.listen(port, () => {
-      console.log(`Server Up on ${port}`);
-    });
-  },
-};
+     start,
+     app
+}
